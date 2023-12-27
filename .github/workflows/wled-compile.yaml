@@ -28,7 +28,7 @@ jobs:
         cd `cat /tmp/WLEDtemp/wledfoldername`
         echo '[env:custom_build]' >>platformio.ini
         echo 'extends = env:esp32_4MB_XL' >>platformio.ini
-        echo 'build_flags = ${env:esp32_4MB_XL.build_flags} -D WLED_ENABLE_DMX -D WLED_ENABLE_PIXART -D USERMOD_PING_PONG_CLOCK' >>platformio.ini
+        echo 'build_flags = ${env:esp32_4MB_XL.build_flags} -D WLED_ENABLE_DMX -D WLED_DISABLE_MQTT -D WLED_ENABLE_PIXART -D WLED_DISABLE_HUESYNC' >>platformio.ini
         
         pio run -e custom_build || pio run -e custom_build
     - name: Copy Files
